@@ -53,7 +53,6 @@ cat <generation text(en)> | ./multi-bleu.perl <reference text(en)>
 ```
 cat ./results/transformer.en | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en
 ```
-BLEU = 43.37, 63.5/48.0/37.9/30.6 (BP=1.000, ratio=1.066, hyp_len=122796, ref_len=115224)
 
 ## Results
 ### BLEU score
