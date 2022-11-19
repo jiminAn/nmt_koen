@@ -1,5 +1,6 @@
 # Nueral Machine Translation(KOEN)
 - [ref code](https://github.com/kh-kim/simple-nmt)
+- [data preprocessing for nmt](https://github.com/jiminAn/nmt_koen/tree/main/preprocessing_data)
 
 ## 0. Settings
 - conda environment
