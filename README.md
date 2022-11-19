@@ -41,7 +41,7 @@ python translate.py --model_fn <save model path> --gpu_id 0 --lang koen < <test 
 ```
 - run code
 ```
-python translate.py --model_fn ./koen_model.pth --gpu_id 0 --lang koen < ./data/corpus.shuf.test.tok.bpe.ko  > ./results/transformer.en
+python translate.py --model_fn ./models/koen_model.pth --gpu_id 0 --lang koen < ./data/corpus.shuf.test.tok.bpe.ko  > ./results/transformer.en
 ```
 
 2. get BLEU score
