@@ -44,3 +44,21 @@ python translate.py --model_fn <save model path> --gpu_id 0 --lang koen < <test 
 python translate.py --model_fn ./koen_model.pth --gpu_id 0 --lang koen < ./data/corpus.shuf.test.tok.bpe.ko  > ./results/transformer.en
 ```
 
+2. get BLEU score
+- ref code
+```
+cat <generation text(en)> | ./multi-bleu.perl <reference text(en)>
+```
+- run code
+```
+cat ./results/transformer.en | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en
+```
+BLEU = 43.37, 63.5/48.0/37.9/30.6 (BP=1.000, ratio=1.066, hyp_len=122796, ref_len=115224)
+
+## Results
+### BLEU score
+|model|avg|1-gram|2-gram|3-gram|4-gram|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|Transformer|43.37|63.5|48.0|37.9|30.6|
+
+
