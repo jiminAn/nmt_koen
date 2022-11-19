@@ -28,4 +28,4 @@ python en_tokenizer.py koen.clean.true.en > koen.clean.true.en.tok
 ```
 
 ## 5. Byte Pair Encoding
-ref [subword-nmt](https://github.com/rsennrich/subword-nmt)
+- ref [subword-nmt](https://github.com/rsennrich/subword-nmt)
