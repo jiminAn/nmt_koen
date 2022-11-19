@@ -51,7 +51,7 @@ cat <generation text(en)> | ./multi-bleu.perl <reference text(en)>
 ```
 - run code
 ```
-cat ./results/transformer.en | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en
+cat ./results/transformer.en.detok | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en.detok
 ```
 
 ## Results
