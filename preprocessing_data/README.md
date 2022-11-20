@@ -27,5 +27,10 @@ python ko_tokenizer.py koen.clean.true.ko > koen.clean.true.ko.tok
 python en_tokenizer.py koen.clean.true.en > koen.clean.true.en.tok
 ```
 
-## 5. Byte Pair Encoding
+# 5. Byte Pair Encoding
 - ref [subword-nmt](https://github.com/rsennrich/subword-nmt)
+
+# 6. Detoknization(vi)
+```
+:%s/@@ //g
+```
