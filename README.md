@@ -31,7 +31,7 @@ python train.py --train ./data/corpus.shuf.train.tok.bpe --valid ./data/corpus.s
 --gpu_id 0 --batch_size 128 --n_epochs 30 --max_length 100 --dropout .2 \
 --hidden_size 768 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 32 \
 --lr 1e-3 --lr_step 0 --use_adam --use_transformer --rl_n_epochs 0 \
---model_fn ./models/koen_model.pth
+--model_fn ./models/koen_model_transformer.pth
 ```
 
 ### seq2seq
@@ -40,7 +40,7 @@ python train.py --train ./data/corpus.shuf.train.tok.bpe --valid ./data/corpus.s
 --gpu_id 0 --batch_size 128 --n_epochs 30 --max_length 100 --dropout .2 \
 --word_vec_size 512 --hidden_size 768 --n_layers 4 --max_grad_norm 1e+8 --iteration_per_update 2 \
 --lr 1e-3 --lr_step 0 --use_adam --rl_n_epochs 0 \
---model_fn ./models/seq2seq.pth
+--model_fn ./models/koen_model_seq2seq.pth
 ```
 
 ## Evaluation
@@ -63,6 +63,19 @@ cat <generation text(en)> | ./multi-bleu.perl <reference text(en)>
 - run code
 ```
 cat ./results/transformer.en.detok | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en.detok
+```
+
+### seq2seq
+1. translate KO->EN
+- run code
+```
+python translate.py --model_fn ./models/koen_model_seq2seq.pth --gpu_id 0 --lang koen < ./data/corpus.shuf.test.tok.bpe.ko  > ./results/seq2seq.en
+```
+
+2. get BLEU score
+- run code
+```
+cat ./results/seq2seq.en.detok | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en.detok
 ```
 
 ## Results
