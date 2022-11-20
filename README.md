@@ -77,11 +77,12 @@ python translate.py --model_fn ./models/koen_model_seq2seq.pth --gpu_id 0 --lang
 ```
 cat ./results/seq2seq.en.detok | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en.detok
 ```
+BLEU = 38.86, 60.9/43.5/33.1/26.0 (BP=1.000, ratio=1.082, hyp_len=109934, ref_len=101580)
 
 ## Results
 ### BLEU score
 |model|avg|1-gram|2-gram|3-gram|4-gram|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |Transformer|43.37|63.5|48.0|37.9|30.6|
-
+|Seq2Seq|38.86|60.9|43.5|33.1|26.0|
 
