@@ -52,5 +52,5 @@ subword-nmt apply-bpe -c <ko_or_en_bpe> < <own_ko_or_en_train_dataset> > <output
 
 # 6. Detoknization(vi)
 ```
-:%s/@@ //g
+sed -r 's/(@@ )|(@@ ?$)//g'
 ```
