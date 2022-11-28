@@ -1,11 +1,31 @@
 # Data preprocessing for NMT
 
 ## run script
-1. create `{file_name}.en.tok` and `{file_name}.ko.tok`
+1. clean, truecasing, split, tokenizing
+- input file: `{file_name}` ko, en data split by '\t'
+- output file: `{file_name}.en.tok` and `{file_name}.ko.tok`
 ```
 bash create_koen_tok.sh {file_name}
 ```
-2. 
+2. train and apply bpe for OOV
+```
+cd subword-nmt
+```
+- input file : `{train_set}` after 1.
+- output file: bpe code `{train_set}.learn_bpe`, and get applying txt `{train_set}.bpe`
+```
+bash apply_get_bpe.sh {train_set}
+```
+- input file : `{valid_set}` after 1.
+- output file: get applying txt `{file_name}.bpe`
+```
+bash get_bpe.sh {valid_set}
+```
+3. Detokenization
+- 
+```
+```
+
 
 <details>
 <summary>Show Details in each files</summary>
@@ -55,7 +75,7 @@ cd subword-nmt
 ```
 python learn_bpe.py --input <own_ko_or_en_train_dataset> --output <ko_or_en_bpe>
 ```
-2. apply bep in own data set(both ko, en)
+2. apply bpe in own data set(both ko, en)
 ```
 subword-nmt apply-bpe -c <ko_or_en_bpe> < <own_ko_or_en_train_dataset> > <output>
 ```
