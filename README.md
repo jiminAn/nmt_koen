@@ -14,6 +14,31 @@ conda activate simple_nmt
 pip install -r requirements.txt
 ```
 
+## 1. Train
+- input file : allocate `gpu num`, `train_set`, `valid_set` and `save_model_path`
+- output file: train model save in `save_model_path`
+### 1.1 seq2seq based nmt
+```
+bash run_seq.sh {gpu_num} {train_set} {valid_set} {save_model_path}
+```
+### 1.2 transformer based nmt
+```
+bash run_transformer.sh {gpu_num} {train_set} {valid_set} {save_model_path}
+```
+
+## 2. Evaluation
+- input file : allocate `gpu num`, `save_model_path`, `test_set(ko): ` and `test_set(en): reference for eval`
+  - test_set(ko): `.bpe` bpe file
+  - test_set(en): `bpe.detok' detokenization file
+- output file: translation txt `test_set(ko).nmt_en`
+```
+bash evaluation.sh {gpu_num} {save_model_path} {test_set(ko)} {test_set(en)} 
+```
+
+<details>
+<summary>Show Details in each step</summary>
+<div>
+
 ## Train
 ### Transformer
 - ref code
@@ -77,6 +102,9 @@ python translate.py --model_fn ./models/koen_model_seq2seq.pth --gpu_id 0 --lang
 ```
 cat ./results/seq2seq.en.detok | ./multi-bleu.perl ./data/corpus.shuf.test.tok.bpe.en.detok
 ```
+
+</div>
+</details>
 
 
 ## Results
