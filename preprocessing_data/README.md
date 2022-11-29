@@ -19,11 +19,13 @@ bash apply_get_bpe.sh {train_set}
 - input file : `{valid_set}` after 1.
 - output file: get applying txt `{file_name}.bpe`
 ```
-bash get_bpe.sh {valid_set}
+bash get_bpe.sh {valid_set} {lang}
 ```
 3. Detokenization
-- 
+- input file : `{file_name}` after 2(bpe txt)
+- output file: get detokenization txt `{file_name}.detok`
 ```
+bash detok.sh {file_name}
 ```
 
 
